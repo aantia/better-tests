@@ -10,9 +10,12 @@ Extension provide better experience to run tests in your typescript / javascript
 It works also in monorepo, looking for the current `package.json` and running tests in the right context.
 
 
+Example of usage:
+<img align="center" src="https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true" height="150px" style="float: right; padding: 30px;">
+
 ## Configuration
 
-### `.vscode/settings.json`b
+### `.vscode/settings.json`
 
 You can use the following configurations to customize the behavior of the Better Tests extension.
 
