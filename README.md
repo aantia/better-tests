@@ -11,7 +11,9 @@ It works also in monorepo, looking for the current `package.json` and running te
 
 
 Example of usage:
-<img align="center" src="https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true" height="150px" style="padding: 30px;">
+<!-- https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true -->
+![alt text](https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true )
+
 
 ## Configuration
 
