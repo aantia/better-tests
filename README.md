@@ -3,7 +3,7 @@ Small extension to provide better user experience for testing your `typescript` 
 
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/better-tests)
 
-<img align="right" src="https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true" height="150px" style="padding: 30px;">
+<img align="right" src="https://github.com/samuelgja/better-tests/blob/main/assets/icon.png?raw=true" height="150px" style="float: right; padding: 30px;">
 
 Extension provide better experience to run tests in your typescript / javascript projects directly via opened file or via vscode command.
 
@@ -11,7 +11,7 @@ It works also in monorepo, looking for the current `package.json` and running te
 
 
 Example of usage:
-
+<img align="center" src="https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true" height="150px" style="padding: 30px;">
 
 ## Configuration
 
