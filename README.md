@@ -7,10 +7,10 @@ Small extension to provide better user experience for testing your `typescript` 
 
 Extension provide better experience to run tests in your typescript / javascript projects directly via opened file or via vscode command.
 
-It works also in monorepo, looking for the current `package.json` and running tests in the right context.
+*Working also in monorepos, looking for the current `package.json` and running tests in the right context.*
 
 
-Example of usage:
+**Example of usage**:
 <!-- https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true -->
 ![alt text](https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true )
 
