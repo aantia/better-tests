@@ -193,7 +193,7 @@ export function registerTestRunner(context: vscode.ExtensionContext) {
         : `Running \x1b[1m\x1b[32m${testName || filePath}\x1b[0m test`;
       const terminalOptions: vscode.TerminalOptions = {
         cwd,
-        name: "Bun Test Runner",
+        name: "Better Test Runner",
         location: vscode.TerminalLocation.Panel,
         message,
         hideFromUser: true,
