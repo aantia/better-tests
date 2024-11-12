@@ -35,6 +35,11 @@ You can use the following configurations to customize the behavior of the Better
     "type": "string",
     "default": "bun test",
     "description": "Custom script to use instead of `bun test`, for example script from `package.json`"
+  },
+  "better.test.watchFlag": {
+      "type": "string",
+      "default": "--watch",
+      "description": "Custom flag for the watch mode. Default is --watch"
   }
 }
 ```
