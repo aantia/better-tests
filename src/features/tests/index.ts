@@ -74,6 +74,24 @@ class TestCodeLensProvider implements vscode.CodeLensProvider {
       codeLenses.push(new vscode.CodeLens(test.range, runTestCommand));
       codeLenses.push(new vscode.CodeLens(test.range, watchTestCommand));
     }
+    // also we push codelens at top of the file
+    const runAllTestsCommand = {
+      title: "Run All Tests",
+      command: "better.test.runTest",
+      arguments: [document.fileName],
+    };
+    const watchAllTestsCommand = {
+      title: "Watch All Tests",
+      command: "better.test.watchTest",
+      arguments: [document.fileName],
+    };
+
+    codeLenses.push(
+      new vscode.CodeLens(new vscode.Range(0, 0, 0, 0), runAllTestsCommand)
+    );
+    codeLenses.push(
+      new vscode.CodeLens(new vscode.Range(0, 0, 0, 0), watchAllTestsCommand)
+    );
 
     return codeLenses;
   }
