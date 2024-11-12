@@ -3,7 +3,7 @@ Small extension to provide better user experience for testing your `typescript` 
 
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/better-tests)
 
-<img align="right" src="https://user-images.githubusercontent.com/709451/182802334-d9c42afe-f35d-4a7b-86ea-9985f73f20c3.png" height="150px" style="float: right; padding: 30px;">
+<img align="right" src="https://github.com/samuelgja/better-tests/blob/main/assets/icon.png?raw=true" height="150px" style="float: right; padding: 30px;">
 
 Extension provide better experience to run tests in your typescript / javascript projects directly via opened file or via vscode command.
 
