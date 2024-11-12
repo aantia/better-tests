@@ -1,10 +1,10 @@
 {
-  "name": "better-tests",
-  "version": "0.0.4",
+  "name": "better-tests-experience",
+  "version": "0.0.1",
   "author": "oven",
   "repository": {
     "type": "git",
-    "url": "https://github.com/samuelgja/better-tests"
+    "url": "https://github.com/sabubb muelgja/better-tests"
   },
   "main": "dist/extension.js",
   "devDependencies": {
