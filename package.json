@@ -1,0 +1,126 @@
+{
+  "name": "better-tests",
+  "version": "0.0.1",
+  "author": "oven",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelgja/better-tests"
+  },
+  "main": "dist/extension.js",
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^2.20.1",
+    "esbuild": "^0.19.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.0.0"
+  },
+  "description": "Better tests experience for your typescript / javascript projects!",
+  "displayName": "Better Tests",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "galleryBanner": {
+    "color": "#3B3738",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/samuelgja/better-tests",
+  "icon": "assets/icon.png",
+  "keywords": [
+    "bun",
+    "deno",
+    "node.js",
+    "javascript",
+    "typescript",
+    "vscode"
+  ],
+  "license": "MIT",
+  "publisher": "samuelgja",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pretest": "bun run build",
+    "test": "node scripts/test.mjs",
+    "dev": "vscode-test --config scripts/dev.mjs",
+    "prepublish": "npm version patch && bun run build",
+    "publish": "cd extension && bunx vsce publish"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "browser": "dist/web-extension.js",
+  "bugs": {
+    "url": "https://github.com/samuelgja/better-tests/issues"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "This extension needs to be able to run your code using Better Tests."
+    }
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Testing"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Better Test",
+      "properties": {
+        "better.test.filePattern": {
+          "type": "string",
+          "default": "**/*.{test,spec}.{js,ts,tsx,jsx}",
+          "description": "Glob pattern to match test files (e.g., **/*.test.{js,ts,tsx,jsx})"
+        },
+        "better.test.customFlag": {
+          "type": "string",
+          "default": "",
+          "description": "Custom flag added to the end of test command"
+        },
+        "better.test.customScript": {
+          "type": "string",
+          "default": "",
+          "description": "Custom script to use instead of `bun test`, for example script from `package.json`"
+        },
+        "better.test.watchFlag": {
+          "type": "string",
+          "default": "--watch",
+          "description": "Custom flag for the watch mode. Default is --watch"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "better.test.runTest",
+        "title": "Run File Test",
+        "shortTitle": "Run Test",
+        "category": "Better Tests",
+        "icon": "$(play)"
+      },
+      {
+        "command": "better.test.watchTest",
+        "title": "Run File Test in watch mode",
+        "shortTitle": "Run Test Watch",
+        "category": "Better Tests",
+        "icon": "$(sync)"
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "javascript"
+      },
+      {
+        "language": "javascriptreact"
+      },
+      {
+        "language": "typescript"
+      },
+      {
+        "language": "typescriptreact"
+      }
+    ]
+  }
+}
