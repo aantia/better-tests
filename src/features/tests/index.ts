@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import ts from "typescript";
-
+import path from "path";
 /**
  * Find all matching test via ts AST
  */
@@ -139,6 +139,31 @@ export function registerTestCodeLens(context: vscode.ExtensionContext) {
   );
 }
 
+async function getPackageJsonClosest(filePath: string) {
+  const segments = filePath.split(path.sep);
+  // loop through segments and check if there is package.json
+  for (let i = segments.length; i > 0; i--) {
+    const folderPath = segments.slice(0, i).join(path.sep);
+    const packageJsonPath = path.join(folderPath, "package.json");
+    try {
+      const stat = await vscode.workspace.fs.stat(vscode.Uri.file(folderPath));
+      if (stat.type !== vscode.FileType.Directory) {
+        continue;
+      }
+
+      const packageJsonStat = await vscode.workspace.fs.stat(
+        vscode.Uri.file(packageJsonPath)
+      );
+      if (packageJsonStat.type === vscode.FileType.File) {
+        return folderPath;
+      }
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
 // Tracking only one active terminal, so there will be only one terminal running at a time.
 // Example: when user clicks "Run Test" button, the previous terminal will be disposed.
 let activeTerminal: vscode.Terminal | null = null;
@@ -185,16 +210,7 @@ export function registerTestRunner(context: vscode.ExtensionContext) {
 
       console.log("Running test", filePath, testName, isWatchMode);
 
-      // Detect if along file path there is package.json, like in mono-repo, if so, then switch to that directory
-      const packageJsonPaths =
-        await vscode.workspace.findFiles("**/package.json");
-      // Sort by length, so the longest path is first, so we can switch to the deepest directory
-      const packagesRootPaths = packageJsonPaths
-        .map((uri) => uri.fsPath.replace("/package.json", ""))
-        .sort((a, b) => b.length - a.length);
-      const packageJsonPath: string | undefined = packagesRootPaths.find(
-        (path) => filePath && filePath.includes(path)
-      );
+      const packageJsonPath = await getPackageJsonClosest(filePath);
 
       if (activeTerminal) {
         activeTerminal.dispose();
