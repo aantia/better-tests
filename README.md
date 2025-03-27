@@ -14,6 +14,13 @@ Extension provide better experience to run tests in your typescript / javascript
 <!-- https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true -->
 ![alt text](https://github.com/samuelgja/better-tests/blob/main/assets/example.png?raw=true )
 
+To use with the node native test runner, set these in your config:
+```
+"better.test.customScript": "tsx --test --test-force-exit",
+"better.test.customTestNameFlag": "--test-name-pattern=",
+"better.test.putFileLast": true,
+```
+
 
 ## Configuration
 
@@ -42,6 +49,16 @@ You can use the following configurations to customize the behavior of the Better
       "type": "string",
       "default": "--watch",
       "description": "Custom flag for the watch mode. Default is --watch"
+  },
+  "better.test.customTestNameFlag": {
+      "type": "string",
+      "default": "-t ",
+      "description": "Custom way of indicating the file name in the output commant. Default is -t"
+  },
+  "better.test.putFileLast": {
+      "type": "boolean",
+      "default": "false",
+      "description": "Indicate whether the file name needs to go last. Default behaviour puts the file name in the middle."
   }
 }
 ```
